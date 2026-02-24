@@ -7,9 +7,8 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #fdf6e3;
+            background-color: white;
             color: #333;
-            margin: 40px;
             line-height: 1.6;
         }
 
@@ -47,36 +46,44 @@
             border-radius: 6px;
         }
 
-            .btn-jouer:hover {
-                background-color: #3e5870;
-            }
+        btn-jouer:hover {
+           background-color: #3e5870;
+        }
+
+        #largeur {
+            width: 400px;
+            height: 810px;
+            background-color: lightyellow;
+        }
     </style>
 </head>
 <body>
-    <h1>SudokuCrans-jQuery</h1>
-    <p>
-        Bienvenue sur le projet <strong>SudokuCrans-jQuery</strong>, un Sudoku
-        interactif codé à Crans par Wah Gabuzomeu, 80 ans, passionné de logique, de vie, et de
-        pixels bien rangés.
-    </p>
-    <p>Le projet utilise HTML, CSS, JavaScript et jQuery pour offrir entre autres :</p>
-    <ul>
-        <li>Une grille dynamique</li>
-        <li>Des interactions fluides</li>
-        <li>Une résolution automatique</li>
-        <li>Une génération de nouvelles grilles avec épuration personnalisée</li>
-        <li>Un affichage des chiffres possibles</li>
-        <li>La lecture de grilles depuis des fichiers textes</li>
-    </ul>
-    <a class="btn-jouer" href="CreeTableauSudoku.html">🎮 Jouer au Sudoku</a>
-    <button class="btn-jouer" onclick="window.close()">Quitter</button>
-    <br />
-    <div class="pepsi">
-        <img src="Pepsi.png" align="left" />
-        <p class="signature" align="center">
-            Codé avec patience et humour par JP Ripoll,<br />
-            accompagné de son Cocker Anglais Pepsi, inspecteur canin 🐾
+    <div id="largeur">
+        <h1>SudokuCrans-jQuery</h1>
+        <p>
+            Bienvenue sur le projet <strong>SudokuCrans-jQuery</strong>, un Sudoku
+            interactif codé à Crans par Wah Gabuzomeu, 80 ans, passionné de logique, de vie, et de
+            pixels bien rangés.
         </p>
+        <p>Le projet utilise HTML, CSS, JavaScript et jQuery pour offrir entre autres :</p>
+        <ul>
+            <li>Une grille dynamique</li>
+            <li>Des interactions fluides</li>
+            <li>Une résolution automatique</li>
+            <li>Une génération de nouvelles grilles avec épuration personnalisée</li>
+            <li>Un affichage des chiffres possibles</li>
+            <li>La lecture de grilles depuis des fichiers textes</li>
+        </ul>
+        <a class="btn-jouer" href="CreeTableauSudoku.html">🎮 Jouer au Sudoku</a>
+        <button class="btn-jouer" onclick="window.close()">Quitter</button>
+        <br />
+        <div class="pepsi">
+            <img src="Pepsi.png" align="left" />
+            <p class="signature" align="center">
+                Codé avec patience et humour par Wah Gabuzomeu,<br />
+                accompagné de son Cocker Anglais Pepsi, inspecteur canin 🐾
+            </p>
+        </div>
     </div>
 </body>
 </html>
