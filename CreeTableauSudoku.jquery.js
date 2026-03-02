@@ -109,6 +109,9 @@ function CreeTableau(pNumTab, pNbLig, pNbcol, pHeader, pEdit) {
         // Mise en cache des <td> créés pour usage ultérieur
         elements = $elemTable.find('td').toArray();
         nbCells = elements.length;
+        for (let i = 0; i < nbCells; i++) {
+            $(elements[i]).text('');
+        }
     } catch (err) {
         if (err instanceof Error) {
             alert('creeTableau ' + err.name + ' ' + err.message);
@@ -741,7 +744,7 @@ function grilleInitialeValide() {
     return true;
 }
 
-function resoudreGrille() {
+function resoudreGrille(avecYoupie) {
     try {
         document.getElementById('montrerCasesReliees').checked = false;
         sauveGrille2();
@@ -757,25 +760,29 @@ function resoudreGrille() {
         // une approche non déterministe.
         resoudre1();
         if (grillePleine()) {
-            youpie();
-            $('#titre').text("Sudoku : Bravo c'est gagné (1) !");
+            if (avecYoupie) {
+                youpie();
+                $('#titre').text("Sudoku : Bravo c'est gagné (1) !");
+            }
         } else {
             restaureGrille2();
             resoudre2();
             if (grillePleine()) {
-                youpie();
-                $('#titre').text("Sudoku : Bravo c'est gagné (2) !");
+				if(avecYoupie) {
+					youpie();
+					$('#titre').text("Sudoku : Bravo c'est gagné (2) !");
+				}
             } else {
                 restaureGrille2();
                 resoudre3();
                 if (grillePleine()) {
-                    if (!document.getElementById("sansYoupie").checked) {
+                    if (avecYoupie) {
                         youpie();
                         $('#titre').text("Sudoku : Bravo c'est gagné (3) !");
-                    } else {
-                        $('#titre').text("Sudoku : Grille pleine aléatoire");
-                        document.getElementById("sansYoupie").checked = false;
-                    }
+					}
+					else {
+						$('#titre').text("Sudoku : Nouvelle grille aléatoire (3) !");
+					}
                 } else {
                     alert('Résolution impossible, grille trop complexe');
                 }
@@ -881,6 +888,7 @@ function resoudre3() {
 function epureGrille() {
     try {
         const $NbCases = $('#nbCases');
+		resoudreGrille(false);
         if (grillePleine() && grilleValide() && $NbCases.val().trim() !== '' && !isNaN($NbCases.val())) {
             const traites = [];
             const nbCases = $NbCases.val();
